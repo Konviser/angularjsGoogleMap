@@ -21,20 +21,30 @@ angular.module('pixformanceHomeworkApp')
           };
           scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
           infoWindow = new google.maps.InfoWindow();
+
+          google.maps.event.addDomListener(window, "resize", function() {
+            var center = scope.map.getCenter();
+            google.maps.event.trigger(scope.map, "resize");
+            scope.map.setCenter(center);
+          });
         });
 
         scope.$on('addressSelected', function (event,details){
           var marker = new google.maps.Marker({
               position: details.location,
               map: scope.map,
-              title: details.address
+              title: details.address,
           });
+
+          scope.map.setCenter(marker.getPosition());
           scope.markers.push(marker);
+
           google.maps.event.addListener(marker, 'click', function(){
             infoWindow.setContent(marker.title);
             infoWindow.open(scope.map, marker);
+            scope.map.setCenter(marker.getPosition());
           });
-      })
+      });
     },
 
       template: '<div id="map"></div>'
