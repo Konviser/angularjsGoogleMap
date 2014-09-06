@@ -4,12 +4,15 @@ angular.module('pixformanceHomeworkApp')
   .directive('mapDir', ['$timeout', function ($timeout) {
 
     return {
-      restrict: 'A',
+      restrict: 'E',
       link: function(scope,el, attrs){
 
+        var lat = (typeof attrs.lat === 'undefined')? 52.0000: parseInt(attrs.lat, 10);
+        var long = (typeof attrs.long === 'undefined')? 9.0000: parseInt(attrs.long, 10)
+
         var mapOptions = {
-            zoom: 7,
-            center: new google.maps.LatLng(52.0000, 9.0000),
+            zoom: (typeof attrs.zoom === 'undefined')? 7: parseInt(attrs.zoom, 10),
+            center: new google.maps.LatLng(lat, long),
             mapTypeId: google.maps.MapTypeId.TERRAIN
         };
 
