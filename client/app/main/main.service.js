@@ -1,24 +1,26 @@
 'use strict';
 
 angular.module('pixformanceHomeworkApp')
-  .factory('googleMapModel', function(){
+  .factory('callGoogleMap', ['$http', '$rootScope', function($http, $rootScope){
 
-    var googleMapModel = function(){
-
-        this.init =  function(lat,long,zoom) {
-          var mapOptions = {
-              zoom: typeof zoom !== 'undefined' ? zoom : 7,
-              lat: typeof lat !== 'undefined' ? lat : 52.00000,
-              long: typeof long !== 'undefined' ? long : 10.0000,
-              mapTypeId: google.maps.MapTypeId.TERRAIN
-          };
-          return new google.maps.Map(document.getElementById('map'), mapOptions);
-        };
-
-        this.getInfoWindow = function(){
-          return new google.maps.InfoWindow();
+    var callAPI = function(val){
+      return $http.get('http://maps.googleapis.com/maps/api/geocode/json',{
+        params: {
+          address: val,
+          sensor: false,
+          language: $rootScope.language
         }
+      }).then(function(res){
+        var addresses = [];
+          angular.forEach(res.data.results, function(item){
+              addresses.push(item.formatted_address);
+          });
+        return addresses;
+      });
     };
-    return new googleMapModel();
 
-});
+    return {
+      getLocations: callAPI
+    }
+
+}]);

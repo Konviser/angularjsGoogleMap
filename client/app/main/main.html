@@ -4,7 +4,13 @@
           <div class="list-group">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-pencil fa-fw"></i></span>
-                <input type="text" class="form-control" class="list-group-item" placeholder="Type the address">
+                   <input type="text"
+                    ng-model="address"
+                    placeholder="Type address"
+                    typeahead="location for location in getAddress($viewValue)"
+                    typeahead-loading="loadingLocations"
+                    class="form-control">
+                   <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
             </div>
           </div>
         </div>
