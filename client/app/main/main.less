@@ -1,6 +1,7 @@
 body {
-  padding-top: 50px;
+  padding: 20px
 }
+
 /*
  * Style tweaks
  * --------------------------------------------------
@@ -10,12 +11,7 @@ body {
   overflow-x: hidden; /* Prevent scroll on narrow devices */
   height: 100%;
 }
-body {
-  padding-top: 70px;
-}
-footer {
-  padding: 30px 0;
-}
+
 
 /*
  * Off Canvas
@@ -27,6 +23,17 @@ footer {
  * (For now I will ignore that for mobile users and also not worry about
  * screen re-sizing popping the menu out.)
  */
+#map {
+    display: block;
+    height: 600px;
+}
+.infoWindowContent {
+    font-size:  14px !important;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+
 @media screen and (min-width: 768px) {
   .row-offcanvas {
     position: relative;
