@@ -5,5 +5,8 @@ angular.module('pixformanceHomeworkApp')
 
       $scope.getAddress = callGoogleMap.getLocations;
 
+      $scope.onAddressSelect = function($item,$model,$value){
+        $scope.$broadcast('addressSelected',$item);
+      };
 
   }]);

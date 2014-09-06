@@ -13,7 +13,10 @@ angular.module('pixformanceHomeworkApp')
       }).then(function(res){
         var addresses = [];
           angular.forEach(res.data.results, function(item){
-              addresses.push(item.formatted_address);
+              addresses.push({
+                address: item.formatted_address,
+                location: item.geometry.location
+              });
           });
         return addresses;
       });
