@@ -1,121 +1,119 @@
-body {
-  padding: 20px
-}
-
-html,
-body {
-  overflow-x: hidden;
-  height: 100%;
-}
-
 #map {
+  height: 100vh;
+  width: 100%;
+}
+
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+
+    .mapcontainer {
+      padding: 0;
+    }
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
     display: block;
-    height: 600px;
+    text-decoration: none;
+    color: #999999;
 }
 
-.infoWindowContent {
-    font-size:  14px !important;
-    border-top: 1px solid #ccc;
-    padding-top: 10px;
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
 }
 
-
-@media screen and (min-width: 768px) {
-  .row-offcanvas {
-    position: relative;
-    -webkit-transition: all .25s ease-out;
-       -moz-transition: all .25s ease-out;
-            transition: all .25s ease-out;
-  }
-
-  .row-offcanvas-right {
-    right: 25%;
-  }
-
-  .row-offcanvas-left {
-    left: 25%;
-  }
-
-  .row-offcanvas-right .sidebar-offcanvas {
-    right: -25%; /* 3 columns */
-  	background-color: rgb(222, 255, 255);
-  }
-
-  .row-offcanvas-left .sidebar-offcanvas {
-    left: -25%; /* 3 columns */
-  	background-color: rgb(255, 255, 255);
-  }
-
-  .row-offcanvas-right.active {
-    right: 0; /* 3 columns */
-  }
-
-  .row-offcanvas-left.active {
-    left: 0; /* 3 columns */
-  }
-
-  .row-offcanvas-right.active .sidebar-offcanvas {
-  	background-color: rgb(254, 254, 254);
-  }
-  .row-offcanvas-left.active .sidebar-offcanvas {
-  	background-color: rgb(254, 254, 254);
-  }
-
-.row-offcanvas .content {
-    width: 75%; /* 9 columns */
-    -webkit-transition: all .25s ease-out;
-       -moz-transition: all .25s ease-out;
-            transition: all .25s ease-out;
-
-  }
-
-  .row-offcanvas.active .content {
-    width: 100%; /* 12 columns */
-  }
-
-  .sidebar-offcanvas {
-    position: absolute;
-    top: 0;
-    width: 25%; /* 3 columns */
-  }
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
 }
-@media screen and (max-width: 767px) {
-  .row-offcanvas {
-    position: relative;
-    -webkit-transition: all .25s ease-out;
-       -moz-transition: all .25s ease-out;
-            transition: all .25s ease-out;
-  }
 
-  .row-offcanvas-right {
-    right: 0;
-  }
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
 
-  .row-offcanvas-left {
-    left: 0;
-  }
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
 
-  .row-offcanvas-right
-  .sidebar-offcanvas {
-    right: -50%; /* 6 columns */
-  }
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
 
-  .row-offcanvas-left
-  .sidebar-offcanvas {
-    left: -50%; /* 6 columns */
-  }
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 250px;
+    }
 
-  .row-offcanvas-right.active {
-    right: 50%; /* 6 columns */
-  }
+    #wrapper.toggled {
+        padding-left: 0;
+    }
 
-  .row-offcanvas-left.active {
-    left: 50%; /* 6 columns */
-  }
+    #sidebar-wrapper {
+        width: 250px;
+    }
 
-  .sidebar-offcanvas {
-    position: absolute;
-    top: 0;
-    width: 50%; /* 6 columns */
-  }
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
 }

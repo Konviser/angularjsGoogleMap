@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!--div class="container-fluid">
       <div class="row row-offcanvas row-offcanvas-left">
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
           <div class="list-group">
@@ -16,8 +16,39 @@
             </div>
           </div>
         </div>
+      </div>
+        <div class="row row-offcanvas row-offcanvas-right">
         <div class="col-xs-12 col-sm-9 content">
-          <map-dir class="row" map-dir></map-dir>
+          <map-dir map-dir></map-dir>
         </div>
     </div>
-</div>
+</div-->
+
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+              <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-pencil fa-fw"></i></span>
+                     <input type="text"
+                      ng-model="address"
+                      placeholder="Type address"
+                      typeahead="location.address for location in getAddress($viewValue)"
+                      typeahead-loading="loadingLocations"
+                      typeahead-on-select = "onAddressSelect($item,$mode,$label)"
+                      typeahead-wait-ms = '100'
+                      class="form-control">
+                     <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+              </div>
+        </div>
+
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 mapcontainer">
+                      <map-dir map-dir></map-dir>
+            </div>
+        </div>
+
+    </div>
