@@ -1,9 +1,6 @@
 'use strict';
 
 angular.module('pixformanceHomeworkApp', [
-  'ngCookies',
-  'ngResource',
-  'ngSanitize',
   'ngRoute',
   'ui.bootstrap'
 ])
