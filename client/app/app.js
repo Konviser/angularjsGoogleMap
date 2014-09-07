@@ -7,11 +7,11 @@ angular.module('pixformanceHomeworkApp', [
   'ngRoute',
   'ui.bootstrap'
 ])
-  .config(function ($routeProvider, $locationProvider) {
+  .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider
       .otherwise({
         redirectTo: '/'
       });
 
     $locationProvider.html5Mode(true);
-  });
+  }]);
