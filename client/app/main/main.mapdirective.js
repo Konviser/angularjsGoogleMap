@@ -17,7 +17,7 @@ angular.module('pixformanceHomeworkApp')
           var mapOptions = {
               zoom: (typeof attrs.zoom === 'undefined')? 7: parseInt(attrs.zoom, 10),
               center: new google.maps.LatLng(lat, long),
-              mapTypeId: google.maps.MapTypeId.TERRAIN
+              mapTypeId: google.maps.MapTypeId.ROADMAP
           };
           scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
           infoWindow = new google.maps.InfoWindow();
@@ -36,7 +36,8 @@ angular.module('pixformanceHomeworkApp')
               title: details.address,
           });
 
-          scope.map.setCenter(marker.getPosition());
+          scope.map.setZoom(17);
+          scope.map.panTo(marker.position);
           scope.markers.push(marker);
 
           google.maps.event.addListener(marker, 'click', function(){
