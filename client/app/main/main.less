@@ -5,7 +5,7 @@
   transition: all 0.5s ease;
 }
 
-@sidebarcolor: #000;
+
 @position: 250px;
 @fullsize: 100%;
 
@@ -21,17 +21,6 @@
     .create-transition();
 }
 
-#sidebar-wrapper {
-    z-index: 1000;
-    position: fixed;
-    left: @position;
-    width: 0;
-    overflow-y:auto;
-    height: @fullsize;
-    margin-left: -250px;
-    background: @sidebarcolor;
-    .create-transition();
-}
 
 
 #page-content-wrapper {
@@ -47,8 +36,4 @@
         padding-left: @position;
     }
 
-    #sidebar-wrapper {
-        width: @position;
-        overflow-y:visible;
-    }
 }

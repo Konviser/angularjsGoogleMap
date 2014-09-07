@@ -1,0 +1,21 @@
+@sidebarcolor: #000;
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: @position;
+    width: 0;
+    overflow-y:auto;
+    height: @fullsize;
+    margin-left: -250px;
+    background: @sidebarcolor;
+    .create-transition();
+}
+
+@media(min-width:768px) {
+
+    #sidebar-wrapper {
+        width: @position;
+        overflow-y:visible;
+    }
+}
