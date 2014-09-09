@@ -1,5 +1,5 @@
 {
-  "name": "pixformance-homework",
+  "name": "angularjs-googlemaps",
   "version": "0.0.0",
   "main": "server/app.js",
   "dependencies": {
