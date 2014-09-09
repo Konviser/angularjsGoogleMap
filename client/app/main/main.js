@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('pixformanceHomeworkApp')
+angular.module('angularjsGoogleMaps')
   .config(['$routeProvider',function ($routeProvider) {
     $routeProvider
       .when('/', {

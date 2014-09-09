@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('pixformanceHomeworkApp')
+angular.module('angularjsGoogleMaps')
   .directive('mapDir', ['$timeout', function ($timeout) {
 
     return {

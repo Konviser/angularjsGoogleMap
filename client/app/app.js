@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('pixformanceHomeworkApp', [
+angular.module('angularjsGoogleMaps', [
   'ngRoute',
   'ui.bootstrap'
 ])

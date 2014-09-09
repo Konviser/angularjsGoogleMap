@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('pixformanceHomeworkApp')
+angular.module('angularjsGoogleMaps')
   .controller('MainCtrl', ['$scope', '$http', 'callGoogleMap', function ($scope, $http, callGoogleMap) {
 
       $scope.getAddress = callGoogleMap.getLocations;

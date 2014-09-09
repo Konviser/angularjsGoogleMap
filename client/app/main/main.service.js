@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('pixformanceHomeworkApp')
+angular.module('angularjsGoogleMaps')
   .factory('callGoogleMap', ['$http', '$rootScope', function($http, $rootScope){
 
     var callAPI = function(val){
